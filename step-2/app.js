@@ -59,5 +59,5 @@ TodoList.prototype.isItemArchived = function(item) {
 };
 
 TodoList.prototype.getArchived = function() {
-    return this.items.filter(this.isItemArchived;
+    return this.items.filter(this.isItemArchived);
 }
