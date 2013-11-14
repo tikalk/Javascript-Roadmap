@@ -7,3 +7,11 @@
 .todo-item.done {
 	text-decoration: line-through;
 }
+/*#filters button {
+	background: #ccc;
+	border-radius: 3px;
+	border: 1px solid #bbb;
+}
+#filters button.filter-on {
+	background: limegreen;
+}*/

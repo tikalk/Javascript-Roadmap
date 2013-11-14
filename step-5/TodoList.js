@@ -27,19 +27,34 @@ TodoList.prototype.handleAdd = function(ev){
         this.$addInput.val("");
     }
 }
-TodoList.prototype.render = function() {
+TodoList.prototype.render = function(filter) {
+    // first - remove all items
+    this.items.forEach(function(item){
+        item.hide();
+    });
+    // second - render the relevant items
     for (var i = 0; i < this.items.length; i++) {
-        this.renderItem(this.items[i]);
+        // filter if present
+        if (filter && filter.prop !== false) {
+            if (filter.compareFn && filter.compareFn(this.items[i])) {
+                this.renderItem(this.items[i]);
+            }
+            else if (this.items[i][filter.prop] === filter.val) {
+                this.renderItem(this.items[i]);
+            }
+        } else {
+            this.renderItem(this.items[i]);
+        }
     };
 }
 TodoList.prototype.renderItem = function(item) {
     item.$el.appendTo(this.$el);
+    item.show();
 }
 TodoList.prototype.addItems = function(items) {
     for (var i = 0; i < items.length; i++) {
         this.add(items[i], i);
     }
-    this.render();
 }
 TodoList.prototype.add = function(item, i) {
     var index = i;

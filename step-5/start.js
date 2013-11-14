@@ -8,17 +8,32 @@ $(function(){
 				add: '#add-todo',
 				target: '#todo-list'
 			});
-			TodoApp.filters = new FiltersManager([
-				{
-					displayLabel: 'done'
-				},
-				{
-					displayLabel: 'not-done'
-				},
-				{
-					displayLabel: 'all'
+			TodoApp.filters = new FiltersManager({
+				target: '#filters',
+				filters: [
+					{
+						label: 'done',
+						prop: 'done',
+						val: true
+					},
+					{
+						label: 'not-done',
+						prop: 'done',
+						val: false
+					},
+					{
+						label: 'all',
+						prop: false,
+						val: false
+					}
+				],
+				filter: function(filter) {
+					TodoApp.list.render(filter);
 				}
-			]);
+			});
+			TodoApp.filters.addFilter(SearchFilter, {
+				prop: 'description'
+			})
 		}
 	});
 })

@@ -14,6 +14,7 @@ function TodoItem(description) {
     });
     this.createInput();
     this.createDescription();
+    this.$input.on('click', this.onItemCheck.bind(this));
 }
 
 TodoItem.prototype.createDescription = function() {
@@ -26,9 +27,7 @@ TodoItem.prototype.createInput = function() {
     this.$input = $('<input/>').attr('type', 'checkbox');
     // the function here binds 'this'
     // so it can be referenced as is within 'onItemCheck'
-    this.$input
-        .on('click', $.proxy(this.onItemCheck, this))
-        .appendTo(this.$el);
+    this.$input.appendTo(this.$el);
 }
 TodoItem.prototype.onItemCheck = function(ev) {
     this.done = ev.target.checked;
@@ -42,3 +41,10 @@ TodoItem.prototype.setDone = function() {
 TodoItem.prototype.setUndone = function() {
     this.done = false;
 };
+
+TodoItem.prototype.hide = function () {
+    this.$el.hide();
+}
+TodoItem.prototype.show = function () {
+    this.$el.show();
+}
