@@ -1,26 +1,40 @@
-function TodoItem(description) {
+var TodoApp = {
+	list: function (items) {
+		items.forEach(function(item){
+			console.log('item:', item);
+		});
+	},
+
+	filters: function (filters) {
+		filters.forEach(function(filter){
+			console.log('filter:', filter);
+		});
+	}
+}
+TodoApp.TodoItem = function (description){
 	this.description = description;
 	this.done = false;
-
+	this.created = new Date();
 }
 
-TodoItem.prototype.done = function() {
+TodoApp.TodoItem.prototype.done = function() {
 	this.done = true;
 }
 
-TodoItem.prototype.setUndone = function() {
+TodoApp.TodoItem.prototype.setUndone = function() {
 	this.done = false;
 }
 
 // Todo Items Factory
-var TodoItemFactory = {
+TodoApp.TodoFactory = {
 	create: function(description) {
-		var todoItem = new TodoItem(description);
+		var todoItem = new TodoApp.TodoItem(description);
 		return todoItem;
 	}
 }
 
 // example usage
-var myTodo = TodoItemFactory.create("buy milk");
+var myTodo = TodoApp.TodoFactory.create("buy milk");
 console.log(myTodo.description);
 console.log(myTodo.done);
+console.log(myTodo instanceof TodoApp.TodoItem);

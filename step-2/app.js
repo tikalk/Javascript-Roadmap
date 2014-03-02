@@ -7,35 +7,48 @@ function createGuid() {
     });
 }
 
-// objects
-function TodoItem(description) {
-    this.id = createGuid()
-    this.isArchived = false
-    this.description = description;
-    this.done = false;
-}
+var TodoApp = {
+    list: function (items) {
+        items.forEach(function(item){
+            console.log('item:', item);
+        });
+    },
 
-TodoItem.prototype.setDone = function() {
-    this.done = true;
-};
-
-TodoItem.prototype.setUndone = function() {
-    this.done = false;
-};
-
-function TodoList(items) {
-    this.items = [];
-    for (var i = 0; i < items.length; i++) {
-        this.items.push(new TodoItem(items[i].description));
+    filters: function (filters) {
+        filters.forEach(function(filter){
+            console.log('filter:', filter);
+        });
     }
 }
 
+// objects
+TodoApp.TodoItem = function (description){
+    this.description = description;
+    this.done = false;
+    this.created = new Date();
+}
 
-TodoList.prototype.add = function(item, i) {
-    this.items.splice(i, 0, new TodoItem(item.description));
+TodoApp.TodoItem.prototype.done = function() {
+    this.done = true;
+}
+
+TodoApp.TodoItem.prototype.setUndone = function() {
+    this.done = false;
+}
+
+TodoApp.TodoList = function(items) {
+    this.items = [];
+    for (var i = 0; i < items.length; i++) {
+        this.add(items[i].description, i);
+    }
+}
+
+TodoApp.TodoList.prototype.add = function(item, i) {
+    i = i || 0;
+    this.items.push(new TodoItem(item.description));
 };
 
-TodoList.prototype.remove = function(id) {
+TodoApp.TodoList.prototype.remove = function(id) {
     var removedItem;
     for (var i = 0; i < this.items.length; i++) {
         if (this.items[i].id === id)
@@ -44,7 +57,7 @@ TodoList.prototype.remove = function(id) {
     return removedItem;
 };
 
-TodoList.prototype.archive = function(item) {
+TodoApp.TodoList.prototype.archive = function(item) {
     for (var i = 0; i < this.items.length; i++) {
         if (this.items[i].id === item.id) {
             this.items[i].isArchived = true;
@@ -54,10 +67,10 @@ TodoList.prototype.archive = function(item) {
     return false;
 };
 
-TodoList.prototype.isItemArchived = function(item) {
+TodoApp.TodoList.prototype.isItemArchived = function(item) {
     return item.isArchived;
 };
 
-TodoList.prototype.getArchived = function() {
+TodoApp.TodoList.prototype.getArchived = function() {
     return this.items.filter(this.isItemArchived);
 }
