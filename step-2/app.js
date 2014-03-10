@@ -45,7 +45,7 @@ TodoApp.TodoList = function(items) {
 
 TodoApp.TodoList.prototype.add = function(item, i) {
     i = i || 0;
-    this.items.push(new TodoItem(item.description));
+    this.items.push(new TodoApp.TodoItem(item.description));
 };
 
 TodoApp.TodoList.prototype.remove = function(id) {
@@ -74,3 +74,13 @@ TodoApp.TodoList.prototype.isItemArchived = function(item) {
 TodoApp.TodoList.prototype.getArchived = function() {
     return this.items.filter(this.isItemArchived);
 }
+
+// Testing the TodoList 
+TodoApp.model = new TodoApp.TodoList([
+    { description: "buy milk" },
+    { description: "pick the kids" },
+    { description: "play the guitar" },
+    { description: "watch revolution" }
+]);
+console.log(TodoApp.model.items.length === 4);
+console.log(TodoApp.model.remove(TodoApp.model.items[2].id));
