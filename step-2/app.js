@@ -24,16 +24,16 @@ var TodoApp = {
 // objects
 TodoApp.TodoItem = function (description){
     this.description = description;
-    this.done = false;
+    this.isDone = false;
     this.created = new Date();
 }
 
 TodoApp.TodoItem.prototype.done = function() {
-    this.done = true;
+    this.isDone = true;
 }
 
 TodoApp.TodoItem.prototype.setUndone = function() {
-    this.done = false;
+    this.isDone = false;
 }
 
 TodoApp.TodoList = function(items) {
