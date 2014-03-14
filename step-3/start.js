@@ -1,4 +1,3 @@
-var TodoApp = {};
 TodoApp.todos = [{
 	description: 'buy milk'
 }, {
@@ -9,5 +8,5 @@ TodoApp.todos = [{
 	description: 'have fun'
 }];
 
-TodoApp.list = new TodoList(TodoApp.todos);
-document.getElementById('todo-list').appendChild(TodoApp.list.el);
+// your challenge - create the next steps to 
+// initiate the app
