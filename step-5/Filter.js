@@ -5,6 +5,7 @@ function Filter (data, config) {
 	this.val = data.val;
 	this._on = false;
 	this.changeFn = config.change;
+	this.context =  config.context;
 	this.attach();
 	this.render();
 }

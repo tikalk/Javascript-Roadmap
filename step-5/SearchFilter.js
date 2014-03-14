@@ -15,7 +15,7 @@ SearchFilter.prototype = new Filter({}, {});
 SearchFilter.prototype.constructor = SearchFilter;
 // add/override functions
 SearchFilter.prototype.attach = function () {
-	this.$el.on('keyup', this.onSearch.bind(this));
+	this.$el.on('keyup', this.onSearch);
 }
 SearchFilter.prototype.compare = function(data) {
 	return data[this.prop].indexOf(this.val) > -1;
