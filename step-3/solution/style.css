@@ -1,0 +1,26 @@
+body {
+	font: 15px 'trebuchet MS', 'lucida sans';
+}
+.todo-item {
+	padding-left: 25px;
+    padding: 0;
+    margin-bottom: 1em;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+    border-bottom: 1px solid #ccc;
+}
+.todo-item input {
+	float: left;
+	margin-top: .9em;
+	margin-right: .5em;
+}
+.todo-item p {
+	background: #efefef;
+	margin: 0;
+	padding: .5em;
+}
+.todo-item.done {
+	text-decoration: line-through;
+}
+.todo-item.done p {
+	color: #ccc;
+}
