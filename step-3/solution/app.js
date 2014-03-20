@@ -116,9 +116,7 @@ TodoApp.ItemView.prototype = {
 	    // variable which is a reference to "this" context
 	    // later, the onItemCheck event handler is invoked
 	    // in the context of the "this"
-	    this.input.addEventListener('click', function(ev) {
-	        todo.onItemCheck.call(todo, ev);
-	    });
+	    this.input.addEventListener('click',this.onItemCheck.bind(this));
 	},
 
 	onItemCheck: function(ev) {
