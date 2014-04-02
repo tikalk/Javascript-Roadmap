@@ -1,9 +1,0 @@
-.todo-item {
-	padding-left: 25px;
-}
-.todo-item input {
-	float: left;
-}
-.todo-item.done {
-	text-decoration: line-through;
-}
