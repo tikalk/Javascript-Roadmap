@@ -15,6 +15,11 @@ TodoApp.ListView.prototype = {
 
 	renderItem: function (itemModel) {
 		var view = new TodoApp.ItemView(itemModel);
+		view.$el.on('remove:todo', $.proxy(this.removeTodo, this));
 		this.$el.append(view.$el);
+	},
+
+	removeTodo: function(ev, data){
+		this.model.remove(data.id);
 	}
 };

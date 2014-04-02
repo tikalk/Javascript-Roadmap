@@ -15,7 +15,9 @@ TodoApp.ItemView.prototype = {
 		});
 		this.$el.append(this.$input);
 		// create the description element
-		this.$el.append(this.make('p', {}, this.model.description));
+		this.$description = this.make('p', {}, this.model.description);
+		this.$removeBtn = this.make('button', {}, 'Remove');
+		this.$el.append(this.$description.append(this.$removeBtn));
 	},
 
 	make: function(tag, attrs, html){
@@ -32,6 +34,7 @@ TodoApp.ItemView.prototype = {
 	    // the onItemCheck event handler is invoked
 	    // in the context of the "this"
 	    this.$input.on('click', $.proxy(this.onItemCheck, this));
+	    this.$removeBtn.on('click', $.proxy(this.onRemove, this));
 	},
 
 	onItemCheck: function(ev) {
@@ -41,5 +44,15 @@ TodoApp.ItemView.prototype = {
 	    } else {
 	        this.$el.removeClass('done');
 	    }
+	},
+
+	onRemove: function(ev){
+		this.$el.trigger('remove:todo', { id: this.model.id });
+		this.remove();	
+	},
+
+	remove: function(){
+		this.$input.off('click');
+		this.$el.remove();
 	}
 };
