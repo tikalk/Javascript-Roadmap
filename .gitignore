@@ -1,0 +1,16 @@
+node_modules
+dist
+.tmp
+.sass-cache
+app/bower_components
+*.css
+*.map
+*.log
+app/styles/modules.css
+app/styles/app.css
+app/app.tmp.less
+app/verix.appcache
+*.appcache
+*.orig
+.idea/workspace.xml
+index.html
