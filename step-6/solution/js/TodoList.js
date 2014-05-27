@@ -42,8 +42,12 @@ TodoApp.TodoList.prototype = {
 
     fetch: function() {
         var onError = function(ev){
-            console.log('There was an error in retreiving the content.')
+            throw new Error('There was an error in retreiving the content.');
         };
+
+        if (!this.url) {
+            onError();
+        }
 
         return $.ajax({
             url: this.url

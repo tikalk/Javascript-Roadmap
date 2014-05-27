@@ -15,10 +15,12 @@ describe("TodoItem - ", function() {
 
 	it("should have a created date", function() {
 		expect(item.created).toBeDefined();
+		expect(item.created).not.toBe(null);
 	});
 
 	it("should have a description property", function() {
 		expect(item.description).toEqual(desc);
+		expect(item.description).toBe(desc);
 	});
 
 	describe("when an item's done status has been changed, ", function() {
@@ -44,7 +46,6 @@ describe("TodoItem - ", function() {
 		item.done();
 		expect(item.done).toHaveBeenCalled();
 	});
-
 	  // demonstrates use of expected exceptions
 	  // describe("#done again", function() {
 	  // 	it("should throw an exception if item is already done", function() {

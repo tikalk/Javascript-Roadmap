@@ -1,0 +1,22 @@
+{
+  "name": "JS Roadmap Jasmine.js Testing",
+  "version": "0.0.1",
+  "homepage": "https://github.com/tikalk/Javascript-Roadmap",
+  "authors": [
+    "Oren Farhi <farhioren@gmail.com>"
+  ],
+  "description": "introduction to testing js with jasmine.js",
+  "main": "runner.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jasmine": "~2.0.0"
+  }
+}
