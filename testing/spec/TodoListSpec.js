@@ -77,11 +77,11 @@ describe("TodoList - ", function() {
 
 	describe("when a list doesn't have a url", function(){
 		beforeEach(function() {
-			list = new TodoApp.TodoList(url);
+			list = new TodoApp.TodoList();
 		});
 
 		it("shouldn't have a url set as a property", function(){
-			expect(list.url).toMatch('');
+			expect(list.url).toBe();
 		});
 
 		it("should throw an error when trying to fetch items", function(){
