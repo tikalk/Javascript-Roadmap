@@ -30,6 +30,6 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "bundle": "browserify solution/app.js -o solution/bundle.js"
+    "bundle": "browserify solution/app.js -o solution/bundle.js --debug"
   }
 }

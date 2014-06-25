@@ -33,7 +33,7 @@ var source = require('vinyl-source-stream');
  
 gulp.task('browserify', function() {
     return browserify('./solution/app.js')
-        .bundle()
+        .bundle({ debug: true })
         //Pass desired output filename to vinyl-source-stream
         .pipe(source('./bundle.js'))
         // Start piping stream to tasks!
