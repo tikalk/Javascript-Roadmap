@@ -13,16 +13,16 @@ var TodoApp = {
 }
 TodoApp.TodoItem = function (description){
 	this.description = description;
-	this.done = false;
+	this.isDone = false;
 	this.created = new Date();
 }
 
 TodoApp.TodoItem.prototype.done = function() {
-	this.done = true;
+	this.isDone = true;
 }
 
 TodoApp.TodoItem.prototype.setUndone = function() {
-	this.done = false;
+	this.isDone = false;
 }
 
 // Todo Items Factory
@@ -36,5 +36,5 @@ TodoApp.TodoFactory = {
 // example usage
 var myTodo = TodoApp.TodoFactory.create("buy milk");
 console.log(myTodo.description);
-console.log(myTodo.done);
+console.log(myTodo.isDone);
 console.log(myTodo instanceof TodoApp.TodoItem);
